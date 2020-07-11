@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function BudgetCollection({ budget, handleDeleteBudget }) {
     return(
@@ -17,6 +18,15 @@ function BudgetCollection({ budget, handleDeleteBudget }) {
                     <i className="material-icons left">delete</i>    
                         Delete Budget
                     </button>
+                    <Link 
+                         className="btn yellow black-text"
+                         to={{
+                             pathname: '/edit',
+                             state: {budget}
+                         }}
+                     ><i className="material-icons left">build</i>
+                         Edit Movie
+                     </Link>
                 </ul>
         </>
     )

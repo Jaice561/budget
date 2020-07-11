@@ -21,5 +21,15 @@ export function deleteOne(id) {
      .then(res => res.json());
 }
 
+export function update(budget) {
+    return fetch(`${BASE_URL}${budget._id}`, {
+        method: "PUT",
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(budget)
+    }, {mode: "cors"})
+        .then(res => res.json());
+}
+
+
 
 

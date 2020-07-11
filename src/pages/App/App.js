@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import * as budgetAPI from '../../services/budgets-api'
 import AddBudgetPage from '../AddBudgetPage/AddBudgetPage';
 import BudgetListPage from '../BudgetListPage/BudgetListPage';
+import EditBudgetPage from '../EditBudgetPage/EditBudgetPage'
 
 class App extends Component {
   state = {
@@ -23,6 +24,16 @@ class App extends Component {
     this.setState(state => ({
       budgets: state.budgets.filter(b => b._id !== id)
     }), () => this.props.history.push('/budgets'));
+  }
+
+  handleUpdateBudget = async updatedBudgetData => {
+    const updatedBudget = await budgetAPI.update(updatedBudgetData);
+    const newBudgetsArray = this.state.budgets.map(b => 
+    b._id === updatedBudget._id ? updatedBudget : b)
+    this.setState(
+      {budgets: newBudgetsArray},
+      () => this.props.history.push('/budgets')
+    )
   }
 
   async componentDidMount() {
@@ -51,6 +62,13 @@ class App extends Component {
           <BudgetListPage 
           budgets={this.state.budgets}
           handleDeleteBudget={this.handleDeleteBudget}
+          />
+        }>
+        </Route>
+        <Route exact path='/edit' render={({location}) =>
+          <EditBudgetPage 
+          handleUpdateBudget={this.handleUpdateBudget}
+          location={location}
           />
         }>
         </Route>
