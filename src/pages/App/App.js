@@ -18,6 +18,13 @@ class App extends Component {
     }), ()=> this.props.history.push('/budgets'));
   }
 
+  handleDeleteBudget = async id => {
+    await budgetAPI.deleteOne(id);
+    this.setState(state => ({
+      budgets: state.budgets.filter(b => b._id !== id)
+    }), () => this.props.history.push('/budgets'));
+  }
+
   async componentDidMount() {
     const budgets = await budgetAPI.getAll();
     this.setState({budgets})
@@ -43,6 +50,7 @@ class App extends Component {
         <Route exact path='/budgets' render={() =>
           <BudgetListPage 
           budgets={this.state.budgets}
+          handleDeleteBudget={this.handleDeleteBudget}
           />
         }>
         </Route>

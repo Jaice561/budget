@@ -14,6 +14,7 @@ function BudgetListPage(props) {
                 <BudgetCollection 
                     key={budget._id}
                     budget={budget}
+                    handleDeleteBudget={props.handleDeleteBudget}
                 />
                 )}
         </div>
