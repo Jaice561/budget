@@ -25,7 +25,7 @@ function BudgetCollection({ budget, handleDeleteBudget }) {
                              state: {budget}
                          }}
                      ><i className="material-icons left">build</i>
-                         Edit Movie
+                         Edit Budget
                      </Link>
                 </ul>
         </>

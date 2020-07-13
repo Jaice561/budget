@@ -1,20 +1,37 @@
 import React from 'react';
 
-const Navbar = ({ pageName }) => {
+const NavBar = ({ user, handleLogout }) => {
+    let nav = user ?
+    <>
+        <nav>
+            <div className="nav-wrapper">
+                <ul id="nav-mobile" className="right">
+                <li><a className="nav-link" href="/budgets">All My Budget List</a></li>
+                <li><a className="nav-link-b" href="/budgets/add">Add to your budget</a></li>
+                    <li><a href=" " className="nav-link">Welcome, {user.name}</a></li>
+                    <li><a href=" " className="nav-link" onClick={handleLogout}>Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
+    </>
+    :
+    <>
+        <nav>
+            <div className="nav-wrapper">
+                <ul id="nav-mobile" className="right">
+                <li><a className="nav-link" href="/budgets">All My Budget List</a></li>
+                    <li><a href="/login" className="nav-link">Log In</a></li>
+                    <li><a href="/signup" className="nav-link">Sign Up</a></li>
+                </ul>
+            </div>
+        </nav>
+    </>
+
     return (
-        <>
-<nav>
-    <div class="nav-wrapper">
-    <a className=" right" href="/"><spam>Home</spam></a>
-    <h5 className="center page-name brand-logo">{pageName}</h5>
-      <ul id="nav-mobile" className="left">
-      <li><a className="nav-link" href="/budgets">All My Budget List</a></li>
-      <li><a className="nav-link-b" href="/budgets/add">Add to your budget</a></li>
-      </ul>
-    </div>
-  </nav>
-</>
+    <>
+        {nav}
+    </>
     )
 }
 
-export default Navbar;
+export default NavBar;

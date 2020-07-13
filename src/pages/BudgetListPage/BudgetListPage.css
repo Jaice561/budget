@@ -5,7 +5,7 @@
     grid-gap: 10px;
     justify-items: center;
   }
-@media (max-width: 1500px) {
+  @media (max-width: 1500px) {
     .BudgetListPage-grid {
     width: 100%;
     display: grid;

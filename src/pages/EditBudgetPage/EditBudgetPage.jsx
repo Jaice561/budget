@@ -1,6 +1,5 @@
-import React, { component, Component } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import NavBar from '../../components/NavBar/NavBar';
 
 class EditBudgetPage extends Component {
     state = {
@@ -24,10 +23,7 @@ class EditBudgetPage extends Component {
     render() {
         return  (
         <>
-             <NavBar 
-                    pageName={"Edit Your BUdget For This Month"}
-                />
-            <div className="row">
+           <div className="AddBudgetPage">
                     <form className="col s12" ref={this.formRef} onSubmit={this.handleSubmit}>
                         <div className="row">
                             <div className="input-field col s6">
@@ -93,7 +89,7 @@ class EditBudgetPage extends Component {
                             Update Budget
                         </button>
                         <Link 
-                            className="btn red"
+                            className="btn blue"
                             to={{
                                 pathname: '/budgets'
                             }}

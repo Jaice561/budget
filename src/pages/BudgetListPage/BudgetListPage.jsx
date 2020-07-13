@@ -1,14 +1,10 @@
 import React from 'react';
-import './BudgetListPage.css';
-import NavBar from '../../components/NavBar/NavBar';
 import BudgetCollection from '../../components/BudgetCollection/BudgetCollection';
+import './BudgetListPage.css';
 
 function BudgetListPage(props) {
     return (
         <>
-        <NavBar 
-            pageName={"My Budget List"}
-        />
         <div className='BudgetListPage-grid'>
             {props.budgets.map(budget => 
                 <BudgetCollection 

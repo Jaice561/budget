@@ -1,14 +1,18 @@
+import tokenService from '../services/tokenService';
 const BASE_URL = '/api/budgets/';
 
 export function getAll() {
-    return fetch(BASE_URL, {mode: "cors"})
+    return fetch(BASE_URL, {
+        headers: {'Authorization': 'Bearer ' + tokenService.getToken()}
+    },{mode: "cors"})
     .then(res => res.json())
 }
 
 export function create(budget) {
+    console.log(budget)
     return fetch(BASE_URL, {
         method: "POST",
-        headers: {'content-type': 'application/json'},
+        headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()},
         body: JSON.stringify(budget)
      }, {mode: "cors"})
      .then(res => res.json());
@@ -17,6 +21,7 @@ export function create(budget) {
 export function deleteOne(id) {
     return fetch(`${BASE_URL}${id}`, {
         method: "DELETE",
+        headers: {'Authorization': 'Bearer ' + tokenService.getToken()}
      }, {mode: "cors"})
      .then(res => res.json());
 }
@@ -24,7 +29,7 @@ export function deleteOne(id) {
 export function update(budget) {
     return fetch(`${BASE_URL}${budget._id}`, {
         method: "PUT",
-        headers: {'content-type': 'application/json'},
+        headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()},
         body: JSON.stringify(budget)
     }, {mode: "cors"})
         .then(res => res.json());
