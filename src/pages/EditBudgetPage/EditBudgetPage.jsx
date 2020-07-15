@@ -27,8 +27,8 @@ class EditBudgetPage extends Component {
                     <form className="col s12" ref={this.formRef} onSubmit={this.handleSubmit}>
                         <div className="row">
                             <div className="input-field col s6">
-                            <input name="month" id="budget_month" type="text" className="active" value={this.state.formData.month} onChange={this.handleChange} required />
-                            <label htmlFor="budget_month">Month</label>
+                            <input name="month" id="budget_month" type="text"  value={this.state.formData.month} onChange={this.handleChange} required />
+                            <label htmlFor="budget_month" className="active">Month</label>
                             </div>
                         </div>
 

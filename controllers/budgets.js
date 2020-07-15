@@ -9,14 +9,14 @@ module.exports = {
 }
 
 function create(req, res) {
-    console.log(req.body, "req.body")
+    req.body.user = req.user._id
     Budget.create(req.body)
     .then(budget => {res.json(budget)})
     .catch(err => {res.json(err)})
 }
 
 function index(req, res) {
-    Budget.find({})
+    Budget.find({user: req.user._id})
     .then(budget => {res.json(budget)})
     .catch(err => {res.json(err)})
 }

@@ -30,7 +30,13 @@ const budgetSchema = new Schema({
     },
     wellBeing: {
         type: Number
+    },
+
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     }
+
 }, {timestamps: true})
 
 module.exports = mongoose.model('Budget', budgetSchema);

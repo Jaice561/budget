@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 function BudgetCollection({ budget, handleDeleteBudget }) {
+
+    function computeRemainingIncome() {
+        return budget.netIncome - budget.carNote
+    }
+
     return(
         <>
             <ul className=" collection">
@@ -14,6 +20,7 @@ function BudgetCollection({ budget, handleDeleteBudget }) {
                     <li class="collection-item"><div>Utilities {budget.utilities}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
                     <li class="collection-item"><div>WiFi {budget.wifi}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
                     <li class="collection-item"><div>WellBeing {budget.wellBeing}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+                    <li class="collection-item"><div>Remaining Income{computeRemainingIncome()}<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
                     <button type="submit" className="btn red" onClick={() => handleDeleteBudget(budget._id)}>
                     <i className="material-icons left">delete</i>    
                         Delete Budget
