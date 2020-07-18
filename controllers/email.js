@@ -7,15 +7,17 @@ module.exports = {
 }
 
 function sendEmail(budgets,recipientEmailAddr) {
-    let budgetsDict = {};
+    let budgetTxt = '';
+    let budgetDict = {};
     budgets.forEach(function (budget) {
-        if (!budgetsDict[budget.month]) {
-            budgetsDict[budget.month] = [];
-            budgetsDict[budget.month].push(budget.budgetsList)
-    }
-        else
-            budgetsDict[budget.month].push(budget.budgetsList);
-});
+        let optionsBudget = "Net income: "+budget.netIncome
+        if (!budgetDict[budget.month]) {
+            budgetDict[budget.month] = [];
+            budgetDict[budget.month].push(optionsBudget)
+        } else {
+            budgetDict[budget.month].push(optionsBudget);
+        }
+    });
      
         let transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -24,25 +26,25 @@ function sendEmail(budgets,recipientEmailAddr) {
             pass: ''
             }
         });
-    for (var month in budgetsDict) {
+    for (var month in budgetDict) {
         console.log(month)
-        var budgetsTxt = '';
-        budgetsDict[weekday].forEach(function (txt) {
-            budgetsTxt += txt + '\n';
+        budgetDict[month].forEach(function (txt) {
+            budgetTxt += txt + '\n';
         });
-      
-        var datestr = '08 13 * * ' + month;
+     
+        // var datestr = '03 09 16' + month+' *';
+        var datestr = '55 18 17 * *';
         console.log(datestr);
      
-        let mailBudgets = {
+        let mailOptions = {
             from: 'Jaice561@gmail.com',
             to: recipientEmailAddr,
-            subject: 'Here are the Budgets for '+month+'Month !',
-            text: budgetsTxt
+            subject: 'Here are the budgets for '+month+' month !',
+            text: budgetTxt
         };
 
         var emailtask = cron.schedule(datestr, () => {
-            transporter.sendMail(mailBudgets, function (error, info) {
+            transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
                     console.log(error);
                 } else {
@@ -53,4 +55,4 @@ function sendEmail(budgets,recipientEmailAddr) {
 
         emailtask.start();
     }
-}
+        }

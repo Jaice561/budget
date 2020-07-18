@@ -7,6 +7,7 @@ import AddBudgetPage from '../AddBudgetPage/AddBudgetPage';
 import BudgetListPage from '../BudgetListPage/BudgetListPage';
 import EditBudgetPage from '../EditBudgetPage/EditBudgetPage';
 import LandingPage from '../../pages/LandingPage/LandingPage';
+import BudgetDetail from '../../pages/BudgetDetail/BudgetDetail';
 import LoginPage from '../LoginPage/LoginPage';
 import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../services/userService';
@@ -76,6 +77,16 @@ class App extends Component {
           userService.getUser() ?
           <AddBudgetPage 
           handleAddBudget={this.handleAddBudget}
+          user={this.state.user}
+          />
+          :
+          <Redirect to='/login' />
+        }>
+        </Route>
+
+        <Route exact path='/budgets/detail' render={() =>
+          userService.getUser() ?
+          <BudgetDetail
           user={this.state.user}
           />
           :
