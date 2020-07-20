@@ -1,5 +1,25 @@
 .background {
     height: 100vh;
-    background-color: aqua;
+    background-color: rgb(223, 240, 240);
     background-size: cover;
+}
+
+h1 {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+      
+    font-weight: bolder;
+    font-size: 100px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+p {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;  
+        padding-top: 10%;    
 }
