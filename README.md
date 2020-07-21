@@ -3,7 +3,7 @@ Budget is a website where the user will be able to create a budget list every mo
 Each month the user will also receive an email of her budgets list
 
 # SCREENSHOT
-![landing.png]()
+![landing.png](https://github.com/Jaice561/budget/blob/master/budgets.png)
 
 # Technologies Used
 - React
