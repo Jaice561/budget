@@ -86,10 +86,11 @@ class App extends Component {
         }>
         </Route>
 
-        <Route exact path='/budgets/detail' render={() =>
+        <Route exact path='/budget/detail' render={() =>
           userService.getUser() ?
           <BudgetDetail
           user={this.state.user}
+          budgets = {this.state.budgets}
           />
           :
           <Redirect to='/login' />
