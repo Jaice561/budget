@@ -1,9 +1,8 @@
 const express = require('express');
-const app = express();
-const logger = require('morgan');
-const port = process.env.PORT || 3001;
 const path = require('path');
 const favicon = require('serve-favicon');
+const logger = require('morgan');
+const port = process.env.PORT || 3001;
 const Budget = require('./models/budget')
 const email = require('./controllers/email')
 
@@ -14,8 +13,9 @@ const userRouter = require('./routes/users');
 const budgetRouter = require('./routes/budgets');
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
+});
 const cors = require('cors')
+const app = express();
 
 app.use(cors());
 app.use(logger('dev'));
