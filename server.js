@@ -11,9 +11,9 @@ require('./config/database');
 
 const userRouter = require('./routes/users');
 const budgetRouter = require('./routes/budgets');
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// app.get('/*', function(req, res) {
+//     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
 const cors = require('cors')
 const app = express();
 
