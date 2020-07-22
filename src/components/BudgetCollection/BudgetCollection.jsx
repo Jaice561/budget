@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 function BudgetCollection({ budget, handleDeleteBudget }) {
 
     function computeRemainingIncome() {
-        console.log(budget.carInsurance)
         return parseInt(budget.netIncome) - (parseInt(budget.carNote) + parseInt(budget.carInsurance) + parseInt(budget.rent) + parseInt(budget.phoneBill) + parseInt(budget.utilities) + parseInt(budget.wifi) + parseInt(budget.wellBeing)) 
 
     }
@@ -29,7 +28,7 @@ function BudgetCollection({ budget, handleDeleteBudget }) {
                     <li className="collection-item"><div>Utilities {budget.utilities}<a href="#!" className="secondary-content"><i className="material-icons">send</i></a></div></li>
                     <li className="collection-item"><div>WiFi {budget.wifi}<a href="#!" className="secondary-content"><i className="material-icons">send</i></a></div></li>
                     <li className="collection-item"><div>WellBeing {budget.wellBeing}<a href="#!" className="secondary-content"><i className="material-icons">send</i></a></div></li>
-                    <li className="collection-item"><div>Remaining Income{computeRemainingIncome()}<a href="#!" className="secondary-content"><i className="material-icons">send</i></a></div></li>
+                    <li className="collection-item"><div>Remaining Income {computeRemainingIncome()}<a href="#!" className="secondary-content"><i className="material-icons">send</i></a></div></li>
                
                     <button type="submit" className="btn red" onClick={() => handleDeleteBudget(budget._id)}>
                     <i className="material-icons left">delete</i>    

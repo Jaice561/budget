@@ -17,7 +17,9 @@ export default function BudgetDetail (props){
         return (
             <>
              <div>
+
                        <Bar
+                       
                          data={{labels: ["Car Note", "Car Insurance", "Rent", "Phone Bill", "Utilities", "WiFi", "WellBeing"],
                          datasets: [
                            {
