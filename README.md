@@ -12,7 +12,7 @@ Each month the user will also receive an email of her budgets list
 - CSS
 
 # Getting started
-[Deployed app]() <br>
+[Deployed app](https://jmo-budgets.herokuapp.com/) <br>
 [Trello Planing](https://trello.com/b/JpTzwd1T/budget)
 
 # Future enhancements
